@@ -7,12 +7,12 @@
 	import '$lib/styles/fireworks.scss';
 	import CloseBtn from './Block1Socials/CloseBtn.svelte';
 
-	// let allBlocksDone = false;
-	let allBlocksDone = true;
+	let allBlocksDone = false;
+	// let allBlocksDone = true;
 	let isClosed = false;
 
 	const done = [false, false, false];
-	// $: allBlocksDone = done.filter((el) => !el).length === 0;
+	$: allBlocksDone = done.filter((el) => !el).length === 0;
 </script>
 
 <Header />
