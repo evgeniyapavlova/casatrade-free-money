@@ -16,8 +16,8 @@
 </script>
 
 {#if !isBlockHidden}
-	<h2>Exclusive award</h2>
 	<div class="wrapper-bgr" transition:fade>
+		<span class="tag">Exclusive award</span>
 		<div class="wrapper" class:hidden={isBlockDone}>
 			<div class="row">
 				<div class="social-logo">
@@ -43,8 +43,16 @@
 {/if}
 
 <style>
-	h2 {
-		margin-bottom: -20px;
-		margin-top: 80px;
+	.tag {
+		position: absolute;
+		right: 40px;
+		top: -12px;
+		font-size: 14px;
+		text-transform: uppercase;
+		border-radius: 4px;
+		padding: 6px 10px 5px;
+		background-color: rgba(255, 255, 255, 0.1);
+		line-height: 1;
+		background-color: var(--primary);
 	}
 </style>
