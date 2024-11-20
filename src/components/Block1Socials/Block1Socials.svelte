@@ -3,25 +3,22 @@
 	import { socialsData, ptLinks } from './socialsData';
 	import ButtonSubscribe from './ButtonSubscribe.svelte';
 	import Promocode from './Promocode.svelte';
-	import CloseBtn from './CloseBtn.svelte';
 
 	const done = [false, false, false, false, false];
-	let isBlockDone = false;
+	export let isBlockDone;
 	let isBlockHidden = false;
 	const promocodeValue = 'TI-MOLODEC';
 	const promocodeText =
 		'You can get a bonus +200% on your balance, promo code can be used 1 time, it is unique, you can not pass it to someone else';
 
 	$: isBlockDone = done.filter((el) => !el).length === 0;
-
-	function onCloseBtnClick() {
-		isBlockHidden = true;
-	}
 </script>
 
 {#if !isBlockHidden}
+	<h2>lvl 1 - beginner</h2>
 	<div class="wrapper-bgr" transition:fade>
-		<CloseBtn {isBlockDone} onClick={onCloseBtnClick} />
+		<div class="wrapper-bgr-1"></div>
+
 		<div class="wrapper" class:hidden={isBlockDone}>
 			{#each socialsData as { img, label }, index}
 				<div class="row">
@@ -43,3 +40,20 @@
 		<Promocode {promocodeValue} {promocodeText} {isBlockDone} />
 	</div>
 {/if}
+
+<style>
+	h2 {
+		margin-bottom: -20px;
+	}
+	.wrapper-bgr-1 {
+		position: absolute;
+		right: 0;
+		background-image: url(/images/voucher.png);
+		background-repeat: no-repeat;
+		background-position: right 0 top 0;
+		width: 100%;
+		height: 100%;
+		background-size: 500px auto;
+		top: -17px;
+	}
+</style>

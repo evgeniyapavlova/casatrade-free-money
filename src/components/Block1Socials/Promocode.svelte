@@ -1,8 +1,12 @@
 <script>
+	import PdfIcon from './img/pdf_icon.svelte';
 	import Copy from './svg/Copy.svelte';
 	import Check from './svg/Check.svelte';
 
-	export let isBlockDone, promocodeValue, promocodeText;
+	export let isBlockDone,
+		promocodeValue,
+		promocodeText,
+		link = null;
 	let copied = false;
 
 	function copyContent() {
@@ -13,17 +17,30 @@
 
 <div class="promocode" class:visible={isBlockDone}>
 	<div>
-		Promo Code: <span class="promocode-btn"
-			>{promocodeValue}
-			<button class="promocode-copy" on:click={copyContent}
-				>{#if copied}<Check />{:else}<Copy />{/if}</button
+		{#if link}
+			<a href={link} target="_blank" class="pdf-link" alt="Download PDF"
+				><PdfIcon />iq_book_34.pdf</a
 			>
-		</span>
+		{:else}
+			Promo Code: <span class="promocode-btn"
+				>{promocodeValue}
+				<button class="promocode-copy" on:click={copyContent}
+					>{#if copied}<Check />{:else}<Copy />{/if}</button
+				>
+			</span>
+		{/if}
+
 		<div class="text-m">{@html promocodeText}</div>
 	</div>
 </div>
 
 <style>
+	.pdf-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+	}
 	.promocode {
 		position: absolute;
 		inset: 0;
