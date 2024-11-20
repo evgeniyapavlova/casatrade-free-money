@@ -1,0 +1,226 @@
+@use '$lib/styles/_constants' as var;
+
+:root {
+	--primary: #007bd7;
+	--primary-hover: #006ec2;
+	--secondary: #2f2646;
+	--main-font: 'Patika', Arial, sans-serif;
+	--font-color-1: #ffffff;
+	--font-color-2: #9ea7bd;
+	--font-color-3: #eef3fc;
+	--font-color-4: #f0f3f8;
+	--font-color-5: #eceff6;
+	--font-color-6: #030613;
+	--orange-1: #f08d6b;
+	--orange-2: #f89c7d;
+	--violet-1: #d7ccfa;
+	--violet-2: #cabaf8;
+	--violet-3: #946af0;
+	--violet-4: #8245eb;
+	--dark-1: #2c3345;
+	--dark-2: #242b3c;
+	--dark-3: #09011a;
+	--dark-4: #3c4557;
+	--dark-5: #170000;
+
+	--app-btn-stroke: #f3f2f7;
+	--app-btn-stroke-outer: #f0f3f8;
+	--footer-link-stroke: #9ea7bd;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	overscroll-behavior: none;
+}
+
+html {
+	background-color: var(--secondary);
+	background-image: linear-gradient(
+		to right,
+		#37212d 0%,
+		#39202e 10%,
+		#3a2133 20%,
+		#3b213a 30%,
+		#3b213a 40%,
+		#3d2243 50%,
+		#3e224b 60%,
+		#3e2250 70%,
+		#3e2251 80%,
+		#3e2251 90%
+	);
+}
+
+body {
+	min-width: 960px;
+	font-family: var(--main-font);
+	color: white;
+	font-size: 20px;
+	line-height: 1.5;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	height: 100%;
+	min-height: 100vh;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+section {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1920px;
+	padding: 0 128px;
+
+	@media screen and (max-width: var.$media-l) {
+		padding: 0 80px;
+	}
+
+	@media screen and (max-width: var.$media-m) {
+		padding: 0 40px;
+	}
+
+	@media screen and (max-width: var.$media-s) {
+		padding: 0 24px;
+	}
+
+	@media screen and (max-width: var.$media-xs) {
+		padding: 0 20px;
+	}
+
+	@media screen and (max-width: var.$media-xxs) {
+		padding: 0 16px;
+	}
+}
+
+.text-xl {
+	color: var(--font-color-5);
+	@include var.font(48px, 60px);
+	font-weight: 700;
+
+	@media screen and (max-width: var.$media-l) {
+		@include var.font(36px, 44px);
+	}
+	@media screen and (max-width: var.$media-m) {
+		@include var.font(34px, 42px);
+	}
+
+	@media screen and (max-width: var.$media-s) {
+		@include var.font(26px, 38px);
+	}
+
+	@media screen and (max-width: var.$media-xs) {
+		@include var.font(22px, 31px);
+	}
+	@media screen and (max-width: var.$media-xxs) {
+		@include var.font(20px, 28px);
+	}
+}
+
+.text-l {
+	color: var(--font-color-2);
+	@include var.font(24px, 36px);
+	font-weight: 400;
+
+	@media screen and (max-width: var.$media-l) {
+		@include var.font(20px, 28px);
+	}
+	@media screen and (max-width: var.$media-m) {
+		@include var.font(18px, 24px);
+	}
+
+	@media screen and (max-width: var.$media-s) {
+		@include var.font(17px, 23px);
+	}
+
+	@media screen and (max-width: var.$media-xs) {
+		@include var.font(16px, 22px);
+	}
+	@media screen and (max-width: var.$media-xxs) {
+		@include var.font(15px, 20px);
+	}
+}
+
+.wrapper {
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+
+	&-bgr {
+		background-color: rgba(255, 255, 255, 0.05);
+		border-radius: 32px;
+		max-width: 700px;
+		margin: 60px auto;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			@include var.transparentBorder();
+		}
+	}
+
+	&.initial-hidden {
+		opacity: 0;
+		display: none;
+		transform: translateX(400px);
+	}
+
+	&.hidden {
+		opacity: 0;
+		transition: opacity 0.3s ease-out;
+	}
+
+	&.visible {
+		display: block;
+		opacity: 1;
+		transform: none;
+		transition:
+			opacity 0.3s ease-out,
+			transform 0.5s ease-out;
+	}
+
+	.row {
+		@include var.flex(center, space-between);
+		position: relative;
+	}
+	.social-logo {
+		@include var.flex(center, flex-start);
+		gap: 18px;
+		color: var(--font-color-5);
+		text-align: left;
+	}
+}
+
+.text-m {
+	color: var(--font-color-2);
+	@include var.font(20px, 28px);
+
+	@media screen and (max-width: var.$media-l) {
+		@include var.font(18px, 24px);
+	}
+
+	@media screen and (max-width: var.$media-m) {
+		@include var.font(16px, 22px);
+	}
+
+	@media screen and (max-width: var.$media-xs) {
+		@include var.font(15px, 20px);
+	}
+
+	@media screen and (max-width: var.$media-xxs) {
+		@include var.font(14px, 18px);
+	}
+}

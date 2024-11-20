@@ -1,0 +1,106 @@
+$media-l: 1919px;
+$media-m: 1439px;
+$media-s: 1279px;
+$media-xs: 991px;
+$media-xxs: 767px;
+
+.header {
+	&-placement {
+		position: -webkit-sticky;
+		position: sticky;
+		z-index: 4;
+		width: 100vw;
+		backdrop-filter: blur(42px);
+		-webkit-backdrop-filter: blur(42px);
+		top: 0;
+	}
+}
+
+header {
+	padding: 16px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 24px;
+
+	@media screen and (max-width: 400px) {
+		gap: 8px;
+	}
+
+	.button:not(.button-login) {
+		@media screen and (max-width: $media-xxs) {
+			display: none;
+		}
+	}
+
+	.button-login.button-medium.button {
+		white-space: nowrap;
+		@media screen and (max-width: 600px) {
+			padding: 8px 12px;
+			font-size: 14px;
+		}
+	}
+}
+
+header .logo-link {
+	display: block;
+
+	svg {
+		display: block;
+
+		@media screen and (max-width: $media-l) {
+			width: 251px;
+			height: auto;
+		}
+
+		@media screen and (max-width: $media-m) {
+			width: 209px;
+		}
+
+		@media screen and (max-width: $media-s) {
+			width: 188px;
+		}
+
+		@media screen and (max-width: 600px) {
+			width: 160px;
+		}
+
+		@media screen and (max-width: 400px) {
+			width: 140px;
+		}
+	}
+}
+
+.bgr-oval {
+	width: 120vw;
+	height: 60vw;
+	border-radius: 50%;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: var(--dark-3);
+	filter: blur(126px);
+	max-width: 3000px;
+	max-height: 1500px;
+	position: absolute;
+
+	&-wrap {
+		width: 100vw;
+		overflow: hidden;
+		position: absolute;
+		z-index: 0;
+		height: 50vw;
+	}
+
+	@media screen and (max-width: $media-l) {
+		filter: blur(108px);
+	}
+
+	@media screen and (max-width: $media-m) {
+		filter: blur(90px);
+	}
+
+	@media screen and (max-width: $media-s) {
+		filter: blur(84px);
+	}
+}
